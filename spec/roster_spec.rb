@@ -34,4 +34,15 @@ describe Roster do
       end
     end
   end
+
+  describe "#to_s" do
+    subject { described_class.new [1, 4, 7], [2, 5] }
+
+    it "outputs a line each for the chef's and assistant's jobs" do
+      expect(subject.to_s).to eq <<~EOF
+        1 4 7
+        2 5
+      EOF
+    end
+  end
 end

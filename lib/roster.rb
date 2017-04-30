@@ -4,4 +4,8 @@ Roster = Struct.new :chef_jobs, :assistant_jobs do
     chef_jobs, assistant_jobs = pending_jobs.partition.with_index {|job, i| i.even? }
     new chef_jobs, assistant_jobs
   end
+
+  def to_s
+    "#{chef_jobs.join " "}\n#{assistant_jobs.join " "}\n"
+  end
 end
