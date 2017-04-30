@@ -25,5 +25,13 @@ describe Roster do
         expect(subject).to eq described_class.new [2], []
       end
     end
+
+    context "when there are many uncompleted jobs" do
+      subject { described_class.from_completed_jobs 7, [3, 1] }
+
+      it "allocates them alternately to the chef and assistant" do
+        expect(subject).to eq described_class.new [2, 5, 7], [4, 6]
+      end
+    end
   end
 end
